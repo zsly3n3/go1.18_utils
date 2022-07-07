@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	s1 := make([]float32, 0)
+	s1 := make([]float64, 0)
 	s1 = append(s1, 5, 3, 2)
 	s1 = append(s1, 1.0, 0, 9)
 	s1 = append(s1, 2.5, 8, 11)
