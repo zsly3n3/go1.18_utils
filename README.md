@@ -13,5 +13,5 @@ $ go get -u github.com/zsly3n3/go1.18_utils
 2. Import it in your code:
 
 ```go
-import " github.com/zsly3n3/go1.18_utils"
+import "github.com/zsly3n3/go1.18_utils"
 ```
