@@ -10,17 +10,17 @@ asc为true是升序,则为降序
 arr为目标排序数组也是排序结果,需要实现MergeSortObj接口
 start,end为排序范围
 */
-func NumericMergeSort[T numericValue](asc bool, arr []T, start, end int) {
+func MergeSortNumeric[T numericValue](asc bool, arr []T, start, end int) {
 	if start >= end {
 		return
 	}
 	mid := (start + end) / 2
-	NumericMergeSort(asc, arr, start, mid)
-	NumericMergeSort(asc, arr, mid+1, end)
-	numericMerge(asc, arr, start, mid, end)
+	MergeSortNumeric(asc, arr, start, mid)
+	MergeSortNumeric(asc, arr, mid+1, end)
+	mergeNumeric(asc, arr, start, mid, end)
 }
 
-func numericMerge[T numericValue](asc bool, arr []T, start, mid, end int) {
+func mergeNumeric[T numericValue](asc bool, arr []T, start, mid, end int) {
 	var tmpArr []T
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
@@ -59,17 +59,17 @@ asc为true是升序,则为降序
 arr为目标排序数组也是排序结果,需要实现MergeSortObj接口
 start,end为排序范围
 */
-func StructMergeSort(asc bool, arr []MergeSortObj, start, end int) {
+func MergeSortStruct(asc bool, arr []MergeSortObj, start, end int) {
 	if start >= end {
 		return
 	}
 	mid := (start + end) / 2
-	StructMergeSort(asc, arr, start, mid)
-	StructMergeSort(asc, arr, mid+1, end)
-	structMerge(asc, arr, start, mid, end)
+	MergeSortStruct(asc, arr, start, mid)
+	MergeSortStruct(asc, arr, mid+1, end)
+	mergeStruct(asc, arr, start, mid, end)
 }
 
-func structMerge(asc bool, arr []MergeSortObj, start, mid, end int) {
+func mergeStruct(asc bool, arr []MergeSortObj, start, mid, end int) {
 	var tmpArr []MergeSortObj
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
