@@ -7,7 +7,7 @@ type numericValue interface {
 /*
 数值归并排序,可升可降的排:
 asc为true是升序,则为降序
-arr为目标排序数组也是排序结果,需要实现MergeSortObj接口
+arr为目标排序数组也是排序结果
 start,end为排序范围
 */
 func MergeSortNumeric[T numericValue](asc bool, arr []T, start, end int) {
