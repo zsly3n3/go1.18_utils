@@ -10,19 +10,20 @@ import (
 var sf = sonyflake.NewSonyflake(sonyflake.Settings{
 	StartTime: time.Date(2020, 12, 16, 0, 0, 0, 0, time.Local)})
 
-func Unique() (string, error) {
-	id, err := sf.NextID()
-	sid := fmt.Sprint(id)
-	return sid, err
-}
+//非分布式唯一
+//func Unique() (string, error) {
+//	id, err := sf.NextID()
+//	sid := fmt.Sprint(id)
+//	return sid, err
+//}
 
-//集群中生成所属单例ID
-//传入进程ID即可
+//分布式唯一ID:md5(雪花ID和进程ID)
+//传入进程ID
 func ClusterUniqueID(pid int) (string, error) {
-	id, err := Unique()
+	id, err := sf.NextID()
 	if err != nil {
 		return "", err
 	}
-	rs := common.Md5(fmt.Sprintf(`%s%d`, id, pid))
+	rs := common.Md5(fmt.Sprintf(`%d%d`, id, pid))
 	return rs, nil
 }
