@@ -19,8 +19,12 @@ func main() {
 	//smap.Store(`t1`, 1)
 	//count := syncAdditional.LenSyncMap(&smap)
 	//fmt.Println(count)
-	Abc()
 
+	//userid := "test123"
+	//sec := gauth.CreateSecret(gauth.GoogleAuthenticator)
+	//url := gauth.CreateProvisionURIWithIssuer(userid, sec)
+	//fmt.Println(`sec:`, sec)
+	//fmt.Println(`url:`, url)
 }
 
 func Test[T constraints.Ordered](arr []T) {
