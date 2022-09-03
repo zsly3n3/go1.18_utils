@@ -17,7 +17,7 @@ func CreateSecret(ga *googleAuthenticator.GAuth) string {
 	return secret
 }
 
-func getCode(ga *googleAuthenticator.GAuth, secret string) string {
+func GetCode(ga *googleAuthenticator.GAuth, secret string) string {
 	code, err := ga.GetCode(secret)
 	if err != nil {
 		return "*"
