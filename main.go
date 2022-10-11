@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-
+	//arr := []int{10, 11, 12, 13, 14, 15, 16, 17, 18, 19}
+	//fmt.Println(slice.ReverseDeleteSlice(arr, 5))
 }
 
 func Test[T constraints.Ordered](arr []T) {
