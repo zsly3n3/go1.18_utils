@@ -1,8 +1,6 @@
 package sortBy
 
-type numericValue interface {
-	int | int8 | int16 | int32 | int64 | uint | uint8 | uint16 | uint32 | uint64 | float32 | float64
-}
+import "github.com/zsly3n3/go1.18_utils/common"
 
 /*
 数值归并排序,可升可降的排:
@@ -10,7 +8,7 @@ asc为true是升序,则为降序
 arr为目标排序数组也是排序结果
 start,end为排序范围
 */
-func MergeSortNumeric[T numericValue](asc bool, arr []T, start, end int) {
+func MergeSortNumeric[T common.NumericValue](asc bool, arr []T, start, end int) {
 	if start >= end {
 		return
 	}
@@ -20,7 +18,7 @@ func MergeSortNumeric[T numericValue](asc bool, arr []T, start, end int) {
 	mergeNumeric(asc, arr, start, mid, end)
 }
 
-func mergeNumeric[T numericValue](asc bool, arr []T, start, mid, end int) {
+func mergeNumeric[T common.NumericValue](asc bool, arr []T, start, mid, end int) {
 	var tmpArr []T
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
