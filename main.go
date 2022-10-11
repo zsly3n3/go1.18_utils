@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"github.com/zsly3n3/go1.18_utils/generate"
+	"github.com/zsly3n3/go1.18_utils/slice"
 	"golang.org/x/exp/constraints"
 )
 
 func main() {
-	//arr := []int{10, 11, 12, 13, 14, 15, 16, 17, 18, 19}
-	//fmt.Println(slice.ReverseDeleteSlice(arr, 5))
+	arr := []int{10, 11, 12, 13, 14, 15, 16, 17, 18, 19}
+	fmt.Println(slice.ObverseDeleteSlice(arr, 5))
 }
 
 func Test[T constraints.Ordered](arr []T) {
