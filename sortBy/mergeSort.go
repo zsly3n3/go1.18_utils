@@ -9,7 +9,7 @@ import (
 数值归并排序,可升可降的排:
 asc为true是升序,false则为降序
 arr为目标排序数组也是排序结果
-start,end为排序范围
+start,end为排序范围,索引范围
 */
 func MergeSortNumeric[T common.NumericValue](asc bool, arr []T, start, end int) {
 	if start >= end {
@@ -22,7 +22,7 @@ func MergeSortNumeric[T common.NumericValue](asc bool, arr []T, start, end int) 
 }
 
 func mergeNumeric[T common.NumericValue](asc bool, arr []T, start, mid, end int) {
-	tmpArr := make([]T, 0, end)
+	tmpArr := make([]T, 0, end-start+1)
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
 		if asc {
