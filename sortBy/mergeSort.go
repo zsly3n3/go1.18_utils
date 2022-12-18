@@ -71,7 +71,7 @@ func MergeSortFloat64Struct(asc bool, arr []MergeSortFloat64Obj, start, end int)
 }
 
 func mergeFloat64Struct(asc bool, arr []MergeSortFloat64Obj, start, mid, end int) {
-	var tmpArr []MergeSortFloat64Obj
+	tmpArr := make([]MergeSortFloat64Obj, 0, end-start+1)
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
 		if asc {
@@ -118,7 +118,7 @@ func MergeSortIntStruct(asc bool, arr []MergeSortIntObj, start, end int) {
 }
 
 func mergeIntStruct(asc bool, arr []MergeSortIntObj, start, mid, end int) {
-	var tmpArr []MergeSortIntObj
+	tmpArr := make([]MergeSortIntObj, 0, end-start+1)
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
 		if asc {
