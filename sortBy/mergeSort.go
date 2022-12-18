@@ -1,6 +1,9 @@
 package sortBy
 
-import "github.com/zsly3n3/go1.18_utils/common"
+import (
+	"fmt"
+	"github.com/zsly3n3/go1.18_utils/common"
+)
 
 /*
 数值归并排序,可升可降的排:
@@ -19,7 +22,7 @@ func MergeSortNumeric[T common.NumericValue](asc bool, arr []T, start, end int) 
 }
 
 func mergeNumeric[T common.NumericValue](asc bool, arr []T, start, mid, end int) {
-	var tmpArr []T
+	tmpArr := make([]T, 0, end)
 	var s1, s2 = start, mid + 1
 	for s1 <= mid && s2 <= end {
 		if asc {
@@ -149,4 +152,29 @@ func mergeIntStruct(asc bool, arr []MergeSortIntObj, start, mid, end int) {
 
 type MergeSortIntObj interface {
 	GetIntValue() int
+}
+
+/**
+ * 递归算法实现二分查找
+ *
+ * @param nums  数组
+ * @param low   左下标
+ * @param high  右下标
+ * @param value 要查找的值
+ * @return
+ */
+func recursiveBserach(nums []int, low, high, value int) int {
+	if low > high {
+		return -1
+	}
+	// 找出中间下标
+	mid := low + ((high - low) >> 1)
+	fmt.Println("mid:", mid)
+	if nums[mid] == value {
+		return mid
+	} else if nums[mid] > value {
+		return recursiveBserach(nums, low, mid-1, value)
+	} else {
+		return recursiveBserach(nums, mid+1, high, value)
+	}
 }
